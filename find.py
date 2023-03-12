@@ -2,6 +2,9 @@
 from llama_index import GPTSimpleVectorIndex, Document, SimpleDirectoryReader
 import os
 
+question = input("Please enter a question: ")  # Python 3
+
+
 os.environ['OPENAI_API_KEY'] = ''
 
 # Loading from a directory
@@ -16,5 +19,5 @@ index.save_to_disk('index.json')
 index = GPTSimpleVectorIndex.load_from_disk('index.json')
 
 # Querying the index
-response = index.query("What are your opening hours?")
+response = index.query(question)
 print(response)
